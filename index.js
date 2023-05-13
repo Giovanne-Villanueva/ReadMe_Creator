@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generate = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -9,13 +10,17 @@ const questions = [
     'Will your project include a table of Contents? ', 
     'Enter in any installation rquirements for your project: ',
     'Please enter in useage information for this project: ',
-    'Enter in any contributors, tutorials, or thrid party assets for the project: ',
+    'Enter in any contributors, tutorials, or thrid party assets for the project: \n(If there are multipul contributors please use # to separate each one)\n',
     'What license are you using for your project? ',
-    'Tests and questions for the project can be entered here: '];
+    'Tests for the project can be entered here: ', 
+    'What is your GitHub username? ', 
+    'What is your email? '];
 
 // TODO: Create a function to write README file
 function writeToFile(newREADME, data) {
-    newREADME=data;
+    
+    
+    newREADME = generate.generateMarkdown(data);
 
     return newREADME;
 }
@@ -66,6 +71,16 @@ function init() {
             type:'input',
             name:'tests',
             message: questions[7]
+        },
+        {
+            type:'input',
+            name:'github',
+            message: questions[8]
+        },
+        {
+            type:'input',
+            name:'email',
+            message: questions[9]
         }
     ])
     .then(response => {
