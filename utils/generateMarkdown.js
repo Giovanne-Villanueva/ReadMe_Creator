@@ -1,13 +1,9 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-const properties = {
-  badge:"",
-  link:""
-};
+
+// Returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
+  
   let badge ="";
-  //if(license.length>= 1)
-  //console.log(license)
   switch(license){
     case 'MIT':
       badge = 'https://img.shields.io/badge/license-MIT-green';
@@ -27,11 +23,10 @@ function renderLicenseBadge(license) {
     default:
       badge = "";
   }
-  //console.log(properties.badge);
   return badge;
 }
 
-// TODO: Create a function that returns the license link
+// Returns the license link based on the license passed in the param
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   
@@ -55,14 +50,13 @@ function renderLicenseLink(license) {
     default:
       link = ""
   }
-  //console.log(properties.link);
   return link;
 }
 
-// TODO: Create a function that returns the license section of README
+// Returns the license section of README
 // If there is no license, return an empty string
+// Calls another function to create license which is added to license section
 function renderLicenseSection(license) {
-  //console.log(license)
   if(license != ""){
     let link =renderLicenseLink(license);
     let licenseSection =
@@ -74,12 +68,13 @@ The project is covered by the ${license} license. Please refer to the repo for m
 License Link: ${link}
 
 `;
-    //console.log(link)
     return licenseSection;
   }
   else return ""
 }
 
+//This funstion takes arrays of strings and passes it to another functions which returns the array to a single string
+//The single string is one section and stored in a array which is returned 
 function format(description, instal, usage, credits, test){
   let formated =[];
   
@@ -91,6 +86,7 @@ function format(description, instal, usage, credits, test){
   return formated;
 }
 
+// formats input to one string with a newline character instead of an array
 function makeWord(sentance){
   let word="";
   for(let i =0; i<sentance.length; i++){
@@ -100,9 +96,9 @@ function makeWord(sentance){
   return word;
 }
 
-// TODO: Create a function to generate markdown for README
+//Generates markdown for README
 function generateMarkdown(data) {
-  //console.log(data.licenses);
+
   let badge = renderLicenseBadge(data.licenses[0]);
   let tableContents=""
     if(data.tableContents){ 
@@ -164,7 +160,6 @@ Email: ${data.email}
 
 GitHub Profile: https://github.com/${data.github}
 `;
-  //console.log(newREADME);
   return newREADME;
 }
 

@@ -1,9 +1,9 @@
-// TODO: Include packages needed for this application
+// Packages used for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generate = require('./utils/generateMarkdown');
 
-// TODO: Create an array of questions for user input
+//An array of questions for user input
 const questions = [
     'What is the title of your project? ', 
     'Give me a description of your project: ', 
@@ -18,19 +18,21 @@ const questions = [
 
 const fileName = "testReadME";
 
-// TODO: Create a function to write README file
+const licenseOp = ['MIT', 'Apache', 'GNU', 'BSD 2-Clause', 'BSD 3-Clause'];
+
+// function that calls a method from generate to write a README file
 function writeToFile(newREADME, data) {
     
-    //generateMarkdown
-    //console.log(data)
     newREADME = generate.generateMarkdown(data);
 
     return newREADME;
 }
 
-// TODO: Create a function to initialize app
-const licenseOp = ['MIT', 'Apache', 'GNU', 'BSD 2-Clause', 'BSD 3-Clause'];
 
+// Function that initialize app
+// the initilization gives users a breif description and then gives users prompts to answer
+// The user response is saved and passed on to another function to make readme
+// Finially we make a new file 
 function init() {
     
     console.log("Welcome to ReadMe Creator.\nHere you will be given a series of questions to build a readme file for your project.\nLets get Started!!\n(If there is a need for a new line please use # to make a new line in input)\n");
