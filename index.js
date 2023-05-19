@@ -16,8 +16,10 @@ const questions = [
     'What is your GitHub username? ', 
     'What is your email? '];
 
+// Global variable used to determine file name 
 const fileName = "testReadME";
 
+//Global variable used to determine possible license for project
 const licenseOp = ['MIT', 'Apache', 'GNU', 'BSD 2-Clause', 'BSD 3-Clause'];
 
 // function that calls a method from generate to write a README file
