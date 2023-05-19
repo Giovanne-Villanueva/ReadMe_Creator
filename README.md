@@ -42,16 +42,16 @@ If the previous command does not work you can use this other command to install 
 
 ## Usage
 
-![Inital terminal starting screen for project](./images/inital.PNG)
+![Inital terminal starting screen for project](./images/inital.png)
 
 The image above will show the inital prompt given to users when the project is ran. This project will give users a series of prompts about the current project users are working on. The prompts do not have any data validation, so you can enter nothing and a readme file will still be created with just section titles. Another thing to mention is that if you wanna make a new line I gave the users the ability to do so by typing pound character or some people know as the hash tag character in there text. My program will see the pound character and make a new line. After the prompts are done we make a readme file using a string literal to build it. Once all the data is organized we place the final string literal in a file. When storing information there is a variable called "filename" used to determine the file name for the readme. I just have it set as "testReadME", so everytime you run the program the new file will have this name. If the file name is not changed and we run the project again, then the contents of the file will be replaced by the new data being stored. Make sure to change the filename variable to make different files. 
 
-![Ending terminal screen for project](./images/success.PNG)
+![Ending terminal screen for project](./images/success.png)
 
 The image above is the final prompt given at the very end confirming that a new file was made. The image below is an example of readme created for this project. We just put all the information from the prompts and put them in there respective sections. Then something we added was a badge for the readme file. You can see it near the top of the readme and in the badges section of the readme.
 
-![Created readme file from project top half](./images/readmePT1.PNG)
-![Created readme file from project bottom half](./images/readmePT2.PNG)
+![Created readme file from project top half](./images/readmePT1.png)
+![Created readme file from project bottom half](./images/readmePT2.png)
 
 ## Credits
 
