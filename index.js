@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generate = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -11,19 +12,29 @@ const questions = [
     'Please enter in useage information for this project: ',
     'Enter in any contributors, tutorials, or thrid party assets for the project: ',
     'What license are you using for your project? ',
-    'Tests and questions for the project can be entered here: '];
+    'Tests for the project can be entered here: ', 
+    'What is your GitHub username? ', 
+    'What is your email? '];
+
+const fileName = "testReadME";
 
 // TODO: Create a function to write README file
 function writeToFile(newREADME, data) {
-    newREADME=data;
+    
+    //generateMarkdown
+    //console.log(data)
+    newREADME = generate.generateMarkdown(data);
 
     return newREADME;
 }
 
 // TODO: Create a function to initialize app
 const licenseOp = ['MIT', 'Apache', 'GNU', 'BSD 2-Clause', 'BSD 3-Clause'];
-//const default = 'MIT';
+
 function init() {
+    
+    console.log("Welcome to ReadMe Creator.\nHere you will be given a series of questions to build a readme file for your project.\nLets get Started!!\n(If there is a need for a new line please use # to make a new line in input)\n");
+
     inquirer
     .prompt([
         {
@@ -66,17 +77,25 @@ function init() {
             type:'input',
             name:'tests',
             message: questions[7]
+        },
+        {
+            type:'input',
+            name:'github',
+            message: questions[8]
+        },
+        {
+            type:'input',
+            name:'email',
+            message: questions[9]
         }
     ])
     .then(response => {
-        //
-        var newREADME = "";
-        //const newREADME = fs.readFile('newReadME.md', 'utf-8', error=> error ? console.log(error): created=ture);
-        //if(created) 
-        writeToFile(newREADME, response);
-        fs.writeFile('newReadME.md', newREADME, error=> error? console.log(error):console.log('We have Sucessfully made your README file'));
+        let newREADME = "";
+        newREADME = writeToFile(newREADME, response);
+        fs.writeFile(`${fileName}.md`, newREADME, error=> error? console.log(error):console.log('We have Sucessfully made your README file'));
     });
 }
+
 
 // Function call to initialize app
 init();
